@@ -4769,7 +4769,7 @@ country_event = {
 	option = {
 		name = "utopia.3308.a"	
 		custom_tooltip = "covenant.cycle.tooltip"
-		add_modifier = { modifier = covenant_end_of_the_cycle days = 18000 } # You really shouldn't have done that...
+		add_modifier = { modifier = covenant_end_of_the_cycle days = 100 } # You really shouldn't have done that... (Vanilla is 18000)
 		hidden_effect = {
 			set_global_flag = end_of_the_cycle
 			set_country_flag = has_shroud_patron
@@ -4785,7 +4785,7 @@ country_event = {
 				}			
 			}
 			country_event = { id = utopia.3310 } # Covenant Sealed
-			country_event = { id = utopia.3320 days = 18000 }
+			country_event = { id = utopia.3320 days = 100 }#vanilla is 18000
 		}
 	}
 	option = {
