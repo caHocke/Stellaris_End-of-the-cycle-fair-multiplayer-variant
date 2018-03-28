@@ -4921,52 +4921,63 @@ country_event = {
 			set_subject_of = {
 				who = none
 			}
-		}		
-		random_system = {
-			limit = {
-				NOT = {
-					any_country = {
-						any_system_within_border = {
-							is_same_value = prevprev
-						}
-					}
-				}
-				any_planet = {
-					has_owner = no
-					is_colonizable = yes
-					habitability = { who = root.species value > 0.2 }				
-				}
-			}
-			random_planet = {
-				limit = {
-					has_owner = no
-					is_colonizable = yes
-					habitability = { who = root.species value > 0.2 }
-				}	
-				root = { set_country_flag = exile_world }
-				set_planet_flag = exile_planet
-				save_event_target_as = exile_world
-			}	
 		}
-		random_system = {
-			limit = {
-				root = { NOT = { has_country_flag = exile_world } }
-				any_planet = {
-					has_owner = no
-					is_colonizable = yes
-					habitability = { who = root.species value > 0.2 }				
-				}
-			}
-			random_planet = {
-				limit = {
-					has_owner = no
-					is_colonizable = yes
-					habitability = { who = root.species value > 0.2 }
-				}	
-				root = { set_country_flag = exile_world }
-				save_event_target_as = exile_world
-			}	
-		}		
+			
+#		random_system = {
+#			limit = {
+#			NOT = {
+#					any_country = {
+#						any_system_within_border = {
+#							is_same_value = prevprev
+#						}
+#					}
+#				}
+#				any_planet = {
+#					has_owner = no
+#					is_colonizable = yes
+#				}
+#			}
+#			random_planet = {
+#				limit = {
+#					has_owner = no
+#					is_colonizable = yes
+#					habitability = { who = root.species value > 0.2 }
+#				}	
+#				root = { set_country_flag = exile_world }
+#				set_planet_flag = exile_planet
+#				save_event_target_as = exile_world
+#			}	
+#		}
+#		random_system = {
+#			limit = {
+#				root = { NOT = { has_country_flag = exile_world } }
+#				any_planet = {
+#					has_owner = no
+#					is_colonizable = yes
+#				}
+#			}
+#			random_planet = {
+#				limit = {
+#					has_owner = no
+#					is_colonizable = yes
+#					habitability = { who = root.species value > 0.2 }
+#				}	
+#				root = { set_country_flag = exile_world }
+#				save_event_target_as = exile_world
+#			}	
+#		}
+#creating a new system
+	    	random_system 0 {
+		
+        	        spawn_system = {
+                	      min_distance = 20
+		      	      max_distance = 80
+		      	      initializer  = <key for pre-defined system>
+		      	      hyperlande   = no
+		      	      is_discovered= yes
+		      	      save_event_target_as = exile_system
+			      }
+                }
 		if = {
 			limit = { has_country_flag = exile_world }
 			event_target:exile_world = {
