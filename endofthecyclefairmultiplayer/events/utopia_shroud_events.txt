@@ -4967,16 +4967,34 @@ country_event = {
 #			}	
 #		}
 #creating a new system
-	    	random_system 0 {
+	    	random_system = {
 		
         	        spawn_system = {
                 	      min_distance = 20
 		      	      max_distance = 80
-		      	      initializer  = <key for pre-defined system>
+		      	      initializer  = fairEndOfTheCycle_systemInitializer
 		      	      hyperlande   = no
 		      	      is_discovered= yes
 		      	      save_event_target_as = exile_system
+
+			      spawn_planet = {
+
 			      }
+			      spawn_natural_wormhole = {
+			          orbit_distange = 100
+				  orbit_angle = 90
+				  random_pos = yes
+
+				  random_system = {
+				      limit = {
+				          NOT = {
+					    is_same_value = prevprev 
+					  }
+					  link_wormholes = prevprev
+				      }
+				  }
+			      }
+			}
                 }
 		if = {
 			limit = { has_country_flag = exile_world }
